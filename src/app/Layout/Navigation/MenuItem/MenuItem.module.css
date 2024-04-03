@@ -1,0 +1,9 @@
+.active {
+    border-right-color: rgb(227, 11, 19);
+}
+.active > a > span {
+    color: white;
+}
+.active > a > svg {
+    fill: var(--primary-color)
+}

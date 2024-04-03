@@ -9,7 +9,6 @@ export const Navigation = ({ className, ...props }: NavigationProps): JSX.Elemen
         <div {...props} className={cn(className, styles['nav'])}>
             <Logo />
             <MenuContainer />
-            Navigator
         </div>
     );
 };

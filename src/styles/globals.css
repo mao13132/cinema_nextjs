@@ -7,6 +7,7 @@
 :root {
   --bar-width: 20%;
   --primary-color: #e30b13;
+  --padding: 2.75rem;
 }
 
 html,
@@ -21,6 +22,7 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  color: white;
 }
 
 button {
