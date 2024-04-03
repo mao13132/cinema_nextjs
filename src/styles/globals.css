@@ -1,0 +1,45 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --bar-width: 20%;
+  --primary-color: #e30b13;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+  font-family: 'Outfit', sans-serif;
+  background-color: rgb(17 24 39);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+button {
+  border: none;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+input[type='file'],
+input[type='file']::-webkit-file-upload-button,
+input[type='file']:focus {
+  cursor: pointer;
+  outline: none;
+}
+input:focus {
+  box-shadow: none !important;
+}
