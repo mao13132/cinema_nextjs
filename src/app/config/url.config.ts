@@ -1,4 +1,4 @@
-export const getMovie = (slug: string) => `/movie/${slug}`;
+export const getMovieUrl = (slug: string) => `/movie/${slug}`;
 export const getGenreUrl = (slug: string) => `/genres/${slug}`;
 export const getActorUrl = (slug: string) => `/actor/${slug}`;
 

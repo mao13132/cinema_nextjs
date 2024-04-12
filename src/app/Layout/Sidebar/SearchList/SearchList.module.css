@@ -1,0 +1,59 @@
+.search-list {
+    position: absolute;
+    border: 1px solid red;
+    border-radius: 1.5rem;
+    background-color: rgb(25, 27, 31);
+    width: 100%;
+    animation: fade .5s ease-in-out;
+    z-index: 10;
+    top: calc(100% + 15px);
+}
+
+@keyframes fade {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+}
+
+.a {
+    display: flex;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    position: relative;
+}
+.a::after {
+    content: '';
+    position: absolute;
+    right: 0.5px;
+    height: 0;
+    width: 0.5;
+    background: transparent;
+    top: 28%;
+    transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+.a:hover::after {
+    background-color: rgb(227, 11, 19);
+    height: 40%;
+}
+.img {
+    border-radius: 0.5rem;
+}
+
+/* Если не помещаеться */
+.span {
+    margin-left: 3px;
+    color: white;
+
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.span:last-child {
+    width: 70%;
+}
+
+.not-found {
+    color: white;
+    text-align: center;
+    margin: 1.25rem 0;
+}
