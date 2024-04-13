@@ -1,0 +1,30 @@
+.movies-list {
+    margin-top: 60px;
+    animation: fade .5s ease-in-out;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.heading {
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 30px;
+    margin-bottom: 20px;
+    color: white;
+    text-transform: capitalize;
+}
+
+.button {
+    padding: 1.75rem;
+    display: block;
+    text-align: center;
+}
