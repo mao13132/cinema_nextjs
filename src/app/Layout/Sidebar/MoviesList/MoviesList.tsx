@@ -13,7 +13,7 @@ export const MoviesList = ({ link, title, movies, className, ...props }: MoviesL
                 {title}
             </div>
 
-            {movies.map(movie => <MoviesItem key={movie._id} movie={movie} />)}
+            {movies.map((movie, idx) => <MoviesItem key={idx} movie={movie} />)}
 
             <Link href={link} className={styles['button']}>
                 Смотреть

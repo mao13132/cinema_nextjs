@@ -1,0 +1,47 @@
+.commond {
+    position: relative;
+    padding-bottom: 10px;
+    border-bottom-width: 1px;
+    border-color: gray;
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+}
+
+.commond:focus-within {
+    border-color: var(--primary-color);
+}
+
+.error {
+    position: absolute;
+    bottom: -25px;
+    left: 0;
+    font-size: 15px;
+    width: 100%;
+    color: var(--primary-color);
+}
+
+.field {
+    text-align: left;
+    margin-bottom: 30px;
+}
+
+.input {
+    display: block;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: gray;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.span {
+    font-size: 0.75rem;
+    line-height: 1rem;
+    text-transform: uppercase;
+    color: gray;
+    display: block;
+    padding-bottom: 10px;
+}

@@ -45,7 +45,7 @@ export const MoviesItem = ({ movie, className, ...props }: MoviesItemProps): JSX
 
                 <div className={styles['genres']}>
 
-                    {movie.genres.map((genre, idx) => <Link key={genre._id} href={getGenreUrl(genre.slug)}>
+                    {movie.genres.map((genre, idx) => <Link key={idx} href={getGenreUrl(genre.slug)}>
                         {getGenresListEach(idx, movie.genres.length, genre.name)}
                     </Link>)}
 
