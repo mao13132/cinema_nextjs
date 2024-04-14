@@ -1,6 +1,7 @@
 import { AppProps } from "next/app";
 import Head from "next/head";
-import '../styles/globals.css';
+import '../app/assets/styles/globals.css';
+import 'react-redux-toastr/lib/css/react-redux-toastr.min.css';
 
 function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     return (

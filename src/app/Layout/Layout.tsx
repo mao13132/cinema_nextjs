@@ -8,6 +8,11 @@ import { Sidebar } from "./Sidebar/Sidebar";
 import { QueryClientProvider } from "react-query";
 import { queryClient } from "Query/QueryClient";
 import { ReactQueryDevtools } from 'react-query/devtools'
+import { MyReduxToast } from "Provider/ReduxToast/ReduxToast";
+import { Provider } from "react-redux";
+import { store } from "@/store/store";
+import { toastr } from "react-redux-toastr";
+import { HeadProveder } from "Provider/HeadProvider/HeadProvider";
 
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
@@ -24,12 +29,21 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
-            <QueryClientProvider client={queryClient}>
-                <Layout>
-                    <Component {...props} />
-                </Layout>
-                <ReactQueryDevtools initialIsOpen={false} />
-            </QueryClientProvider>
+            <HeadProveder>
+                <Provider store={store}>
+
+                    <QueryClientProvider client={queryClient}>
+
+                        <MyReduxToast />
+
+                        <Layout>
+                            <Component {...props} />
+                        </Layout>
+                        <ReactQueryDevtools initialIsOpen={false} />
+                    </QueryClientProvider>
+
+                </Provider>
+            </HeadProveder>
         );
     };
 };

@@ -1,4 +1,4 @@
-import { Head } from "next/document";
+import Head from "next/head";
 import { ISeo } from "./Meta.interface";
 import { useRouter } from "next/router";
 import { siteName, titleMerge } from "@/config/seo.config";
