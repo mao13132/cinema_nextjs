@@ -15,7 +15,7 @@ export const Menus = ({ className, menu: { items, title }, ...props }: MenuProps
                     <MenuItems className={styles['menu-item']} key={item_.link} icon={item_.icon} link={item_.link} title={item_.title} />
                 ))}
 
-                {title === 'Главная' ? <AuthItems /> : null}
+                {title === 'Главная' ? <AuthItems className={styles['menu-item']} /> : null}
 
             </ul>
 

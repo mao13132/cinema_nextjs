@@ -29,7 +29,6 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
 export const withLayout = <T extends Record<string, unknown>>(Component: FunctionComponent<T>) => {
     return function withLayoutComponent(props: T): JSX.Element {
         return (
-            <HeadProveder>
                 <Provider store={store}>
 
                     <QueryClientProvider client={queryClient}>
@@ -43,7 +42,6 @@ export const withLayout = <T extends Record<string, unknown>>(Component: Functio
                     </QueryClientProvider>
 
                 </Provider>
-            </HeadProveder>
         );
     };
 };

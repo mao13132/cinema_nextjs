@@ -11,6 +11,7 @@ import { Heading } from '@/components/ui/Heading/Heading';
 import { Button } from '@/components/ui/FormElements/Button/Button';
 import { Filed } from '@/components/ui/FormElements/Field/Field';
 import { AuthField } from '@/components/ui/FormElements/AuthField/AuthField';
+import { useActions } from '@/hooks/useActions';
 
 export const Auth = ({ }: AuthProps): JSX.Element => {
 
@@ -26,13 +27,7 @@ export const Auth = ({ }: AuthProps): JSX.Element => {
         }
     );
 
-    const login = (data: any) => {
-
-        console.table(data)
-
-    };
-
-    const register = (data: any) => { alert('Регистрация') };
+    const { login, register } = useActions();
 
     const onSubmit: SubmitHandler<IAuthInput> = (data) => {
 

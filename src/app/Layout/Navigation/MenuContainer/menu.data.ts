@@ -28,7 +28,7 @@ export const firstMenu: IMenu = {
 
 
 export const userMenu: IMenu = {
-    title: 'General',
+    title: 'Главная',
     items: []
 };
 
