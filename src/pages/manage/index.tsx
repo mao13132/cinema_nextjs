@@ -1,12 +1,13 @@
+import { NextPageAuth } from "@/shared/types/auth.types";
 import { withLayout } from "Layout/Layout";
 
 import { GetStaticProps } from 'next';
 
-function IndexManagePage({ }) {
+const IndexManagePage: NextPageAuth = () => {
     return (<></>);
 };
 
-
+IndexManagePage.isOnlyAdmin = true;
 
 export default withLayout(IndexManagePage);
 

@@ -13,6 +13,7 @@ import { Provider } from "react-redux";
 import { store } from "@/store/store";
 import { toastr } from "react-redux-toastr";
 import { HeadProveder } from "Provider/HeadProvider/HeadProvider";
+import { AuthProvider } from "Provider/AuthProvider/AuthProvider";
 
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
@@ -39,6 +40,7 @@ export const withLayout = <T extends Record<string, unknown>>(Component: Functio
                         <Layout>
                             <Component {...props} />
                         </Layout>
+
                         <ReactQueryDevtools initialIsOpen={false} />
                     </QueryClientProvider>
 

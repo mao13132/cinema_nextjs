@@ -1,15 +1,15 @@
+import { NextPageAuth } from "@/shared/types/auth.types";
 import { withLayout } from "Layout/Layout";
 
 import { GetStaticProps } from 'next';
 
-function ProfilePage({ }) {
+const ProfilePages: NextPageAuth = () => {
     return (<></>);
-};
+}
 
+export default withLayout(ProfilePages);
 
-
-export default withLayout(ProfilePage);
-
+ProfilePages.isOnlyUser = true;
 
 export const getStaticProps: GetStaticProps = async () => {
     return {
