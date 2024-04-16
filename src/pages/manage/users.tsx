@@ -4,13 +4,17 @@ import { withLayout } from "Layout/Layout";
 
 import { GetStaticProps } from 'next';
 
-const IndexManagePage: NextPageAuth = () => {
-    return (<><Admin /></>);
+const AdminUsersPage: NextPageAuth = () => {
+    return (
+        <>
+            <Admin />
+        </>
+    );
 };
 
-IndexManagePage.isOnlyAdmin = true;
+AdminUsersPage.isOnlyAdmin = true;
 
-export default withLayout(IndexManagePage);
+export default withLayout(AdminUsersPage);
 
 
 export const getStaticProps: GetStaticProps = async () => {

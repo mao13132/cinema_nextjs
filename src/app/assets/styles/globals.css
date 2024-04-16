@@ -10,6 +10,7 @@
   --primary-color: #e30b13;
   --padding: 2.75rem;
   --shadow: 0 10px 15px -3px rgb(177 19 19);
+  --shadow2: 4px 7px 15px -3px rgb(255 255 255 / 12%);
 }
 
 html,
