@@ -18,6 +18,10 @@ const nextConfig = {
             {
                 source: '/media/:path*',
                 destination: 'http://localhost:8000/media/:path*',
+            },
+            {
+                source: '/token/',
+                destination: 'http://localhost:8000/api/token/',
             }
         ]
     },

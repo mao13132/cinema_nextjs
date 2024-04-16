@@ -20,3 +20,5 @@ export const Filed = forwardRef(({ title, errors, className, type = 'text', ...p
         </div>
     );
 });
+
+Filed.displayName = 'Filed';

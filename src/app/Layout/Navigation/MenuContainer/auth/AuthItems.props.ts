@@ -1,3 +1,3 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface AuthItemsProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> { }; 
+export interface AuthItemsProps extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> { }; 

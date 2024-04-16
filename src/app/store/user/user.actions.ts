@@ -1,5 +1,5 @@
 import { createAsyncThunk } from '@reduxjs/toolkit'
-import { IAuthResponse, IEmailPassword } from './user.interface'
+import { IAuthResponse, IEmailPassword, ITokens } from './user.interface'
 import { authService } from '@/services/auth/auth.service'
 import { toastr } from 'react-redux-toastr';
 import { toastError } from '@/utils/toastError';
@@ -23,7 +23,7 @@ export const register = createAsyncThunk<IAuthResponse, IEmailPassword>('auth/re
 });
 
 /* Авторизация */
-export const login = createAsyncThunk<IAuthResponse, IEmailPassword>('auth/login', async ({ email, password }, thunkApi) => {
+export const login = createAsyncThunk<ITokens, IEmailPassword>('auth/login', async ({ email, password }, thunkApi) => {
     try {
         const response = await authService.login(email, password);
 

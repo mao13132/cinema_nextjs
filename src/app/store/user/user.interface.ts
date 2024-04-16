@@ -6,13 +6,13 @@ export interface IUserState {
 };
 
 export interface ITokens {
-    accessToken: string;
-    refreshToken: string;
+    access: string;
+    refresh: string;
 }
 
 
 export interface IInitialState {
-    user: IUserState | null;
+    user: IUserState | null | string;
     isLoading: boolean;
 }
 

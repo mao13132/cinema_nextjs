@@ -20,7 +20,6 @@ export const MenuItems = ({ icon, link, title, className, ...props }: MenuItemPr
                 <MaterialIcon name={icon} />
                 <span>{title}</span>
             </Link>
-
         </li>
     );
 };

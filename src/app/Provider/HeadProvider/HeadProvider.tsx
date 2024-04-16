@@ -8,9 +8,6 @@ import { ReactNode } from 'react';
 export const HeadProveder = ({ children }: {children: ReactNode}): JSX.Element => {
     return (
         <>
-            <Head>
-                <meta name='theme-color' content={'#181B1E'} />
-            </Head>
 
             <NextProgressBar
 

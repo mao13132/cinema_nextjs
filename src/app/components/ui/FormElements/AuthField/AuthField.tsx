@@ -4,7 +4,6 @@ import styles from './AuthField.module.css';
 import { AuthFieldProps } from "./AuthField.props";
 import { Filed } from '../Field/Field';
 import { EMAIL_REGEXP } from '@/shared/regex';
-import { Inputs } from '../../Input/Input';
 
 
 
@@ -15,10 +14,10 @@ export const AuthField = ({ register, formState: { errors }, isPasswordRequired 
             <Filed
                 {...register('email', {
                     required: 'Поле E-mail обязательно к заполнению',
-                    pattern: {
+                    /* pattern: {
                         value: EMAIL_REGEXP,
                         message: 'Пожалуйста, введите корректный E-mail'
-                    }
+                    } */
                 })}
                 title='E-mail'
                 errors={errors?.email?.message?.toString()} />
@@ -26,10 +25,10 @@ export const AuthField = ({ register, formState: { errors }, isPasswordRequired 
             <Filed
                 {...register('password', isPasswordRequired ? {
                     required: 'Поле пароль обязательно к заполнению',
-                    minLength: {
+                    /* minLength: {
                         value: 6,
                         message: 'Минимальная длина пароля 6 символов'
-                    }
+                    } */
                 } : {})}
                 type='password'
                 title='Пароль'

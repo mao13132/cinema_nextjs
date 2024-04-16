@@ -1,5 +1,5 @@
 .menu {
-    margin-bottom: 3.5rem;
+    margin-bottom: 2.5rem;
     animation-name: fade;
 }
 
@@ -12,7 +12,7 @@
         opacity: 1;
     }
 }
-
+ 
 .title {
     color: rgb(153, 154, 165);
     text-transform: uppercase;
@@ -40,7 +40,7 @@
 .menu-item>a {
     display: flex;
     align-items: center;
-    margin-top: 1.5rem;
+    margin-top: 1.1rem;
     cursor: pointer;
 }
 
@@ -48,8 +48,13 @@
     color: rgb(102, 103, 110);
     margin-left: 0.75rem;
 
-    font-size: 1.125rem;
-    line-height: 1.75rem;
+    font-size: 1.0rem;
+    line-height: 0.75rem;
+
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 .menu-item>a>span:hover {

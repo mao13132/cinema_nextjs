@@ -1,3 +1,3 @@
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface LogoutButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {};
+export interface LogoutButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> {};
