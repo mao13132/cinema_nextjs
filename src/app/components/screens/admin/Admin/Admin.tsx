@@ -8,16 +8,19 @@ import { AdminNavigator } from '@/components/ui/AdminNavigator/AdminNavigator';
 
 export const Admin = ({ className, ...props }: AdminProps): JSX.Element => {
     return (
-        <div className={cn(className, styles['admin'])} {...props}>
+        <div className={cn(className)} {...props}>
             <Head>
                 <title>Админ панель</title>
             </Head>
 
             <AdminNavigator />
 
-            <Heading title='Админка' />
+
+            <Heading title='Админка' className={styles['title']} />
 
             <Statistics />
 
+
         </div>);
 };
+

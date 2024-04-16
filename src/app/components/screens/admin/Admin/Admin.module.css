@@ -1,0 +1,8 @@
+.admin {
+    display: flex;
+    align-items: stretch;
+}
+
+.title {
+    margin-bottom: 3rem;
+}
