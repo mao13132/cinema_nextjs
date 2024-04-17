@@ -1,0 +1,25 @@
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.button {
+    outline: none;
+    border: none;
+    background-color: transparent;
+
+    font-size: 1.75rem;
+    line-height: 1rem;
+    transition-property: opacity;
+    transition-timing-function: ease-in-out;
+    transition-duration: 200ms;
+    opacity: .8;
+}
+
+.button:hover {
+    opacity: 1;
+}
+
+.button:first-child {
+    margin-right: 12px;
+}

@@ -1,0 +1,8 @@
+.table-header {
+    background-color: #46141b !important;
+    margin-top: 20px;
+}
+
+.table-header:hover {
+    background-color: var(--primary-color) !important;
+}

@@ -1,15 +1,11 @@
-import { Admin } from "@/components/screens/admin/Admin/Admin";
+import { UsersList } from "@/components/screens/admin/UsersList/UsersList";
 import { NextPageAuth } from "@/shared/types/auth.types";
 import { withLayout } from "Layout/Layout";
 
 import { GetStaticProps } from 'next';
 
 const AdminUsersPage: NextPageAuth = () => {
-    return (
-        <>
-            <Admin />
-        </>
-    );
+    return (<UsersList />);
 };
 
 AdminUsersPage.isOnlyAdmin = true;
