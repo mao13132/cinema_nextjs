@@ -7,5 +7,11 @@ export const GenreService = {
         return axiosClassic.get<IGenre[]>(getGenresUrl(``), {
             params: searchTerm ? { searchTerm } : {},
         })
-    }
+    },
+
+
+    async deleteGenres(id: string) {
+        return axiosClassic.delete<string>(getGenresUrl(`/${id}`))
+    },
+
 };

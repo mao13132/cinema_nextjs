@@ -9,9 +9,14 @@ export const MovieService = {
             params: searchTerm ? { searchTerm } : {},
         })
     },
+
     async getPopularMovies() {
         const { data: movies } = await axiosClassic.get<IMove[]>('/popular');
 
         return movies
+    },
+
+    async deleteMovie(id: string) {
+        return axiosClassic.delete<string>(getMovieUrl(`/${id}`))
     },
 };
