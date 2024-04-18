@@ -16,8 +16,8 @@ export const useGenres = () => {
 
     const queryData = useQuery(['genres list', debouncedSearch], () => GenreService.getAllGenres(debouncedSearch), {
         select: ({ data }) => data.map((genres): AdminTableProps => ({
-            id: genres._id,
-            editUrl: getAdminUrl(`genres/edit/${genres._id}`),
+            id: genres.id,
+            editUrl: getAdminUrl(`genres/edit/${genres.id}`),
             items: [genres.name, genres.slug],
         })),
 

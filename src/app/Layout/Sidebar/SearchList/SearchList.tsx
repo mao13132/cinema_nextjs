@@ -11,7 +11,7 @@ export const SearchList = ({ movies, className, ...props }: SearchListProps): JS
         <div className={cn(className, styles['search-list'])} {...props}>
 
             {movies.length ? movies.map(movie => (
-                <Link className={styles['a']} href={getMovieUrl(movie.slug)} key={movie._id}>
+                <Link className={styles['a']} href={getMovieUrl(movie.slug)} key={movie.id}>
 
                     <Image className={styles['img']} src={movie.poster}
                         width={50}
@@ -21,7 +21,7 @@ export const SearchList = ({ movies, className, ...props }: SearchListProps): JS
                         objectPosition='top'
                         draggable={false} />
 
-                        <span className={styles['span']}>{movie.title}</span>
+                    <span className={styles['span']}>{movie.title}</span>
 
                 </Link>
             )) : <div className={styles['not-found']}>Not Found...</div>}

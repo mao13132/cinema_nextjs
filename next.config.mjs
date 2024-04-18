@@ -22,10 +22,6 @@ const nextConfig = {
             {
                 source: '/token/',
                 destination: 'http://localhost:8000/api/token/',
-            },
-            {
-                source: '/manage/:path*',
-                destination: 'http://localhost:8000/manage/:path*',
             }
         ]
     },

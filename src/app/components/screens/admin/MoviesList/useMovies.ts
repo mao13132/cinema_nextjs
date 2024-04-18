@@ -18,8 +18,8 @@ export const useMovies = () => {
 
     const queryData = useQuery(['Movie list', debouncedSearch], () => MovieService.getAll(debouncedSearch), {
         select: ({ data }) => data.map((movie): AdminTableProps => ({
-            id: movie._id,
-            editUrl: getAdminUrl(`movie/edit/${movie._id}`),
+            id: movie.id,
+            editUrl: getAdminUrl(`movie/edit/${movie.id}`),
             items: [movie.title, getGenresList(movie.genres), String(movie.rating)],
         })),
 

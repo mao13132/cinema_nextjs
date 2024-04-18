@@ -1,7 +1,7 @@
 import { TypeMaterialIconName } from "./icons.types";
 
 export interface IGenre {
-    _id: string,
+    id: string,
     name: string,
     slug: string,
     description: string,
@@ -15,7 +15,7 @@ export interface IParameters {
 }
 
 export interface IActor {
-    _id: string,
+    id: string,
     photo: string,
     name: string,
     countMovies: number,
@@ -23,7 +23,7 @@ export interface IActor {
 }
 
 export interface IMove {
-    _id: string,
+    id: string,
     poster: string,
     bigPoster: string,
     title: string,

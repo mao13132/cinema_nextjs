@@ -16,8 +16,8 @@ export const useActors = () => {
 
     const queryData = useQuery(['actors list', debouncedSearch], () => AvtorsService.getAllActors(debouncedSearch), {
         select: ({ data }) => data.map((actor): AdminTableProps => ({
-            id: actor._id,
-            editUrl: getAdminUrl(`actors/edit/${actor._id}`),
+            id: actor.id,
+            editUrl: getAdminUrl(`actors/edit/${actor.id}`),
             items: [actor.name, String(actor.countMovies)],
         })),
 
