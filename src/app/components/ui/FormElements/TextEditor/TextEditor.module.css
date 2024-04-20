@@ -1,0 +1,43 @@
+.text-editor {
+    animation: fade .5s ease-in-out;
+    color: #000;
+
+}
+
+
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+
+.editor {
+    min-height: 384px;
+    border: 1px solid gray;
+    overflow: hidden;
+
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+
+.toolbar {
+    color: #000;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(90, 90, 90, 0.8);
+}
+
+
+.toolbar>div>div {
+    background-color: rgba(161, 161, 161, 0.8);
+    border-color: rgba(161, 161, 161, 0.8);
+}

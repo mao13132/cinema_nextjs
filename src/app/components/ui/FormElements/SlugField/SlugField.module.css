@@ -4,6 +4,7 @@
 
 .badge {
     position: absolute;
+    font-size: 10px;
     text-transform: uppercase;
     top: 1.5rem;
     right: 0.75rem;

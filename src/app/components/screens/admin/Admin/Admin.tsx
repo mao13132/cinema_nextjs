@@ -8,7 +8,7 @@ import { AdminNavigator } from '@/components/ui/AdminNavigator/AdminNavigator';
 
 export const Admin = ({ className, ...props }: AdminProps): JSX.Element => {
     return (
-        <div className={cn(className)} {...props}>
+        <div className={cn(className, styles['wrapper'])} {...props}>
             <Head>
                 <title>Админ панель</title>
             </Head>
