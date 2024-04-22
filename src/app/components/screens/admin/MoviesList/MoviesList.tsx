@@ -11,7 +11,7 @@ import { AdminTable } from '@/components/ui/AdminTable/AdminTable/AdminTable';
 
 export const MoviesList = ({ className, ...props }: MoviesListProps): JSX.Element => {
 
-    const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useMovies()
+    const { handleSearch, isLoading, searchTerm, data, deleteAsync, createAsync } = useMovies()
 
     return (<div className={cn(className)} {...props}>
         <Head>
@@ -23,7 +23,7 @@ export const MoviesList = ({ className, ...props }: MoviesListProps): JSX.Elemen
 
         <Heading title='Фильмы' className={styles['title']} />
 
-        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} myClick={createAsync} />
 
         <AdminTable isLoading={isLoading} removeHandler={deleteAsync} headItems={['Фильм', 'Жанр', 'Рейтинг']} tableItems={data || []} />
 

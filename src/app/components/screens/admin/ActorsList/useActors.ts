@@ -7,6 +7,7 @@ import { getAdminUrl } from "@/config/url.config";
 import { toastError } from "@/utils/toastError";
 import { toastr } from "react-redux-toastr";
 import { AvtorsService } from "@/services/actors.service";
+import { useRouter } from "next/router";
 
 export const useActors = () => {
 
@@ -32,6 +33,23 @@ export const useActors = () => {
         setSearchTerm(e.target.value)
     };
 
+    const { push } = useRouter();
+
+    const { mutateAsync: createAsync } = useMutation('create actor', () => AvtorsService.create(), {
+
+        onError: (error) => {
+            toastError(error, 'Actor create');
+        },
+
+        onSuccess: ({ data }) => {
+
+            toastr.success('Create actor', 'create is Okei')
+
+            push(getAdminUrl(`actors/edit/${data.id}`));
+        },
+
+    });
+
     const { mutateAsync: deleteAsync } = useMutation('delete actor', (actorsId: string) => AvtorsService.deleteActors(actorsId), {
 
         onError: (error) => {
@@ -49,7 +67,7 @@ export const useActors = () => {
     });
 
     return useMemo(() => ({
-        handleSearch, ...queryData, searchTerm, deleteAsync
-    }), [queryData, searchTerm, deleteAsync]);
+        handleSearch, ...queryData, searchTerm, deleteAsync, createAsync
+    }), [queryData, searchTerm, deleteAsync, createAsync]);
 
 };

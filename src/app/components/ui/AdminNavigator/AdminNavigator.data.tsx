@@ -12,7 +12,7 @@ export const navItems: AdminNavItemProps[] = [
     },
     {
         title: 'Фильмы',
-        link: getAdminUrl('movies'),
+        link: getAdminUrl('movie'),
     },
     {
         title: 'Актёры',

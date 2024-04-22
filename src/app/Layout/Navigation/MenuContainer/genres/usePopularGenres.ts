@@ -5,7 +5,7 @@ import { useQuery } from 'react-query';
 
 export const useAllGenres = () => {
     const queryData = useQuery('popular genre menu', () => GenreService.getAllGenres(), {
-        select: ({ data }) => data.map(genre => {
+        select: ({ data }) => data.filter(genre => genre.icon).map(genre => {
 
             return (
                 {

@@ -11,7 +11,7 @@ import { AdminTable } from '@/components/ui/AdminTable/AdminTable/AdminTable';
 
 export const ActorsList = ({ className, ...props }: ActorsListProps): JSX.Element => {
 
-    const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useActors()
+    const { handleSearch, isLoading, searchTerm, data, deleteAsync, createAsync } = useActors()
 
     return (<div className={cn(className)} {...props}>
         <Head>
@@ -23,7 +23,7 @@ export const ActorsList = ({ className, ...props }: ActorsListProps): JSX.Elemen
 
         <Heading title='Актёр' className={styles['title']} />
 
-        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} myClick={createAsync} />
 
         <AdminTable isLoading={isLoading} removeHandler={deleteAsync} headItems={['Актёр', 'Кол-во фильмов']} tableItems={data || []} />
 

@@ -11,7 +11,7 @@ import { AdminTable } from '@/components/ui/AdminTable/AdminTable/AdminTable';
 
 export const GenresList = ({ className, ...props }: GenresListProps): JSX.Element => {
 
-    const { handleSearch, isLoading, searchTerm, data, deleteAsync } = useGenres()
+    const { handleSearch, isLoading, searchTerm, data, deleteAsync, createAsync } = useGenres()
 
     return (<div className={cn(className)} {...props}>
         <Head>
@@ -23,7 +23,7 @@ export const GenresList = ({ className, ...props }: GenresListProps): JSX.Elemen
 
         <Heading title='Жанры' className={styles['title']} />
 
-        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} />
+        <AdminHeader handleSearch={handleSearch} searchTerm={searchTerm} myClick={createAsync} />
 
         <AdminTable isLoading={isLoading} removeHandler={deleteAsync} headItems={['Жанр', 'slug']} tableItems={data || []} />
 

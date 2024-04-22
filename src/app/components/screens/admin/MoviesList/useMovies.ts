@@ -9,6 +9,7 @@ import { toastError } from "@/utils/toastError";
 import { toastr } from "react-redux-toastr";
 import { MovieService } from "@/services/MovieService.service";
 import { getGenresList } from "@/utils/movie/getGenresList";
+import { useRouter } from "next/router";
 
 export const useMovies = () => {
 
@@ -29,10 +30,26 @@ export const useMovies = () => {
 
     });
 
-
     const handleSearch = (e: ChangeEvent<HTMLInputElement>) => {
         setSearchTerm(e.target.value)
     };
+
+    const { push } = useRouter();
+
+    const { mutateAsync: createAsync } = useMutation('create movie', () => MovieService.create(), {
+
+        onError: (error) => {
+            toastError(error, 'Movie create');
+        },
+
+        onSuccess: ({ data }) => {
+
+            toastr.success('Create movie', 'create is Okei')
+
+            push(getAdminUrl(`movie/edit/${data.id}`));
+        },
+
+    });
 
     const { mutateAsync: deleteAsync } = useMutation('delete user', (userId: string) => MovieService.deleteMovie(userId), {
 
@@ -51,7 +68,7 @@ export const useMovies = () => {
     });
 
     return useMemo(() => ({
-        handleSearch, ...queryData, searchTerm, deleteAsync
-    }), [queryData, searchTerm, deleteAsync]);
+        handleSearch, ...queryData, searchTerm, deleteAsync, createAsync
+    }), [queryData, searchTerm, deleteAsync, createAsync]);
 
 };
