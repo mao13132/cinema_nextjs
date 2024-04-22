@@ -1,5 +1,4 @@
 import { SubmitHandler, UseFormSetValue } from "react-hook-form";
-import { IMoviesEditProps } from './ActorEdit.props';
 import { useRouter } from "next/router";
 import { useMutation, useQuery } from "react-query";
 import { toastError } from "@/utils/toastError";
@@ -7,21 +6,20 @@ import { toastError } from "@/utils/toastError";
 import { getKeys } from '@/utils/getKeys';
 import { toastr } from "react-redux-toastr";
 import { getAdminUrl } from "@/config/url.config";
-import { MovieService } from "@/services/MovieService.service";
+import { IActorEditProps } from "./ActorEdit.props";
+import { AvtorsService } from "@/services/actors.service";
 
 
-export const useActorEdit = (setValue: UseFormSetValue<IMoviesEditProps>) => {
+export const useActorEdit = (setValue: UseFormSetValue<IActorEditProps>) => {
 
     const { push, query } = useRouter();
 
-    const movieId = String(query.id)
+    const actorId = String(query.id)
 
-    const { isLoading } = useQuery(['get one movie', movieId], () => MovieService.getById(movieId), {
+    const { isLoading } = useQuery(['get one actor', actorId], () => AvtorsService.getById(actorId), {
         onSuccess: ({ data }) => {
 
             data = data[0]
-
-            debugger
 
             getKeys(data).forEach((key) => { setValue(key, data[key]) });
 
@@ -29,27 +27,27 @@ export const useActorEdit = (setValue: UseFormSetValue<IMoviesEditProps>) => {
         },
 
         onError(error) {
-            toastError(error, 'Get movie')
+            toastError(error, 'Get actor')
         },
 
         enabled: !!query.id
 
     });
 
-    const { mutateAsync } = useMutation('update movie', (data: IMoviesEditProps) => MovieService.update(movieId, data), {
+    const { mutateAsync } = useMutation('update actor', (data: IActorEditProps) => AvtorsService.update(actorId, data), {
         onError: (error) => {
             toastError(error, 'Update henre')
         },
 
         onSuccess() {
-            toastr.success('Обновление фильма', 'Обновления успешно');
+            toastr.success('Обновление актёра', 'Обновления успешно');
 
-            push(getAdminUrl('movie'));
+            push(getAdminUrl('actors'));
         },
 
     });
 
-    const onSubmit: SubmitHandler<IMoviesEditProps> = async (data) => {
+    const onSubmit: SubmitHandler<IActorEditProps> = async (data) => {
         await mutateAsync(data);
     }
 

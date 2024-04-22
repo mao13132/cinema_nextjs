@@ -13,6 +13,7 @@ import { stripHtml } from 'string-strip-html';
 import dynamic from 'next/dynamic';
 import { useActorEdit } from './useActorEdit';
 import { ActorEditProps2, IActorEditProps } from './ActorEdit.props';
+import { UploadFiled } from '@/components/ui/FormElements/UploadField/UploadField';
 
 
 const DynamicTextEditor = dynamic(() => import('@/ui/FormElements/TextEditor/TextEditor'), {
@@ -62,6 +63,22 @@ export const ActorEdit = ({ className, ...props }: ActorEditProps2): JSX.Element
 
                         </div>
 
+                        <Controller
+                            control={control}
+                            name='photo'
+                            defaultValue=''
+                            render={
+                                ({ field: { onChange, value }, fieldState: { error } }) => (<UploadFiled
+                                    onChange={onChange}
+                                    value={`${process.env.NEXT_PUBLIC_DOMAIN}/${value}`}
+                                    error={error}
+                                    folder='actors'
+                                    placeholder='Фото' />)
+                            }
+                            rules={{
+                                required: 'Фото обязательно'
+                            }}
+                        />
 
                         <Button className={styles['button-form']}>Обновить</Button>
                     </>}
