@@ -39,12 +39,14 @@ li {
 a {
   text-decoration: none;
 }
+
 input[type='file'],
 input[type='file']::-webkit-file-upload-button,
 input[type='file']:focus {
   cursor: pointer;
   outline: none;
 }
+
 input:focus {
   box-shadow: none !important;
 }

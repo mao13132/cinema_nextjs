@@ -9,16 +9,9 @@ import { Filed } from '@/components/ui/FormElements/Field/Field';
 import { SlugField } from '@/components/ui/FormElements/SlugField/SlugField';
 import generateSlug from '@/utils/generateSlug';
 import { Button } from '@/components/ui/FormElements/Button/Button';
-import { stripHtml } from 'string-strip-html';
-import dynamic from 'next/dynamic';
 import { useActorEdit } from './useActorEdit';
 import { ActorEditProps2, IActorEditProps } from './ActorEdit.props';
 import { UploadFiled } from '@/components/ui/FormElements/UploadField/UploadField';
-
-
-const DynamicTextEditor = dynamic(() => import('@/ui/FormElements/TextEditor/TextEditor'), {
-    ssr: false,
-})
 
 export const ActorEdit = ({ className, ...props }: ActorEditProps2): JSX.Element => {
 
@@ -60,6 +53,13 @@ export const ActorEdit = ({ className, ...props }: ActorEditProps2): JSX.Element
                                 <SlugField register={register} error={errors.slug} generate={() => { setValue('slug', generateSlug(getValues('name'))) }} />
 
                             </div>
+
+                            <Filed
+                                {...register('countMovies')}
+                                title='Кол-во фильмов'
+                                placeholder='Кол-во фильмов'
+                                errors={errors?.countMovies?.message?.toString()}
+                                className={adminForm['input']} />
 
                         </div>
 

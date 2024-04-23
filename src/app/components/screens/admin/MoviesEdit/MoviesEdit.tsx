@@ -9,15 +9,17 @@ import { Filed } from '@/components/ui/FormElements/Field/Field';
 import { SlugField } from '@/components/ui/FormElements/SlugField/SlugField';
 import generateSlug from '@/utils/generateSlug';
 import { Button } from '@/components/ui/FormElements/Button/Button';
-import { stripHtml } from 'string-strip-html';
-import dynamic from 'next/dynamic';
 import { IMoviesEditProps, MoviesEditProps2 } from './MoviesEdit.props';
 import { useMovieEdit } from './useMovieEdit';
+import { UploadFiled } from '@/components/ui/FormElements/UploadField/UploadField';
+import { useAdminGenre } from './useAdminGenre';
+import { useAdminActors } from '../ActorEdit/useAdminActors';
+import dynamic from 'next/dynamic';
 
-
-const DynamicTextEditor = dynamic(() => import('@/ui/FormElements/TextEditor/TextEditor'), {
+const DynamicSelect = dynamic(() => import('@/ui/Select/Select'), {
     ssr: false,
-})
+});
+
 
 export const MovieEdit = ({ className, ...props }: MoviesEditProps2): JSX.Element => {
 
@@ -28,6 +30,10 @@ export const MovieEdit = ({ className, ...props }: MoviesEditProps2): JSX.Elemen
     );
 
     const { isLoading, onSubmit } = useMovieEdit(setValue)
+
+    const { isLoading: isGenresLoading, data: genresData } = useAdminGenre();
+
+    const { isLoading: isActorsLoading, data: actorsData } = useAdminActors();
 
     return (
         <>
@@ -62,6 +68,132 @@ export const MovieEdit = ({ className, ...props }: MoviesEditProps2): JSX.Elemen
 
                         </div>
 
+                        <div className={styles['param-row']}>
+
+                            <Filed
+                                {...register('parameters.country', { required: 'Страна обязательно' })}
+                                title='Страна'
+                                placeholder='Страна'
+                                errors={errors?.parameters?.country?.message?.toString()}
+                                className={adminForm['input']} />
+
+                            <Filed
+                                {...register('parameters.duration', { required: 'Продолжительность обязательна' })}
+                                title='Продолжительность'
+                                placeholder='Продолжительность'
+                                errors={errors?.parameters?.duration?.message?.toString()}
+                                className={adminForm['input']} />
+
+                            <Filed
+                                {...register('parameters.year', { required: 'Год обязателен' })}
+                                title='Год'
+                                placeholder='Год'
+                                errors={errors?.parameters?.year?.message?.toString()}
+                                className={adminForm['input']} />
+
+
+
+                        </div>
+
+                        <div className={styles['select-row']}>
+
+                            <Controller
+                                control={control}
+                                name='genres'
+                                render={
+                                    ({ field, fieldState: { error } }) => (<DynamicSelect
+                                        field={field}
+                                        options={genresData || []}
+                                        isLoading={isGenresLoading}
+                                        isMulti
+                                        placeholder='Жанры'
+                                        errors={error?.message}
+
+                                    />)
+                                }
+                                rules={{
+                                    required: 'Укажите хотя бы 1 жанр'
+                                }}
+                            />
+
+                            <Controller
+                                control={control}
+                                name='actors'
+                                render={
+                                    ({ field, fieldState: { error } }) => (<DynamicSelect
+                                        field={field}
+                                        options={actorsData || []}
+                                        isLoading={isActorsLoading}
+                                        isMulti
+                                        placeholder='Актёры'
+                                        errors={error?.message}
+
+                                    />)
+                                }
+                                rules={{
+                                    required: 'Укажите хотя бы 1 актёра'
+                                }}
+                            />
+
+                        </div>
+
+                        <div className={styles['image-row']}>
+
+                            <Controller
+                                control={control}
+                                name='poster'
+                                defaultValue=''
+                                render={
+                                    ({ field: { onChange, value }, fieldState: { error } }) => (<UploadFiled
+                                        onChange={onChange}
+                                        value={`${process.env.NEXT_PUBLIC_DOMAIN}/${value}`}
+                                        error={error}
+                                        folder='poster'
+                                        placeholder='Постер' />)
+                                }
+                                rules={{
+                                    required: 'Постер обязателен'
+                                }}
+                            />
+
+                            <Controller
+                                control={control}
+                                name='bigPoster'
+                                defaultValue=''
+                                render={
+                                    ({ field: { onChange, value }, fieldState: { error } }) => (<UploadFiled
+                                        onChange={onChange}
+                                        value={`${process.env.NEXT_PUBLIC_DOMAIN}/${value}`}
+                                        error={error}
+                                        folder='poster'
+                                        placeholder='Большой постер' />)
+                                }
+                                rules={{
+                                    required: 'Большой постер обязателен'
+                                }}
+                            />
+
+
+                        </div>
+                        <div className={styles['video-row']}>
+                            <Controller
+                                control={control}
+                                name='videoUrl'
+                                defaultValue=''
+                                render={
+                                    ({ field: { onChange, value }, fieldState: { error } }) => (<UploadFiled
+                                        onChange={onChange}
+                                        value={`${process.env.NEXT_PUBLIC_DOMAIN}/${value}`}
+                                        error={error}
+                                        folder='video'
+                                        placeholder='Видео'
+                                        isNoImage />)
+                                }
+                            /* rules={{
+                                required: 'Большой постер обязателен'
+                            }} */
+                            />
+                        </div>
 
                         <Button className={styles['button-form']}>Обновить</Button>
                     </>}

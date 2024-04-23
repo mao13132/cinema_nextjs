@@ -5,10 +5,16 @@
 
 .upload-field {
     position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .upload-box {
+    width: 100%;
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .upload-image-container {
@@ -23,6 +29,7 @@
 }
 
 .span {
+    font-size: 14px;
     animation: fade .5s ease-in-out;
     text-transform: uppercase;
 }
@@ -38,8 +45,19 @@
 }
 
 .label {
-    display: block;
     margin-right: 12px;
+    background: var(--primary-color);
+    color: #fff;
+    font-size: 0.5rem;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    cursor: pointer;
+    padding: 10px 10px;
+    gap: 30px;
+
 }
 
 .error {
@@ -47,8 +65,6 @@
 }
 
 .input {
-    display: block;
-    width: 100%;
-    font-size: 20px;
-    color: gray;
+    display: none;
+
 }

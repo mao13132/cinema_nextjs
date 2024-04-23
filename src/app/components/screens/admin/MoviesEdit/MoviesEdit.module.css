@@ -1,0 +1,32 @@
+.param-row {
+    display: flex;
+    gap: 30px;
+}
+
+.image-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+.video-row {
+    margin-top: 70px;
+
+    border-bottom: 1px solid gray;
+    padding-bottom: 20px;
+
+    border-top: 1px solid gray;
+    padding-top: 20px;
+}
+
+.select-row {
+    margin: 20px 0 20px 0;
+    display: flex;
+    width: 100%;
+    gap: 30px;
+}
+
+.button-form {
+    margin-top: 30px;
+    padding: 12px 28px !important;
+}

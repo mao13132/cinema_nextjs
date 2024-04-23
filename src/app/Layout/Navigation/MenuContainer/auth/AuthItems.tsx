@@ -10,7 +10,7 @@ export const AuthItems = ({ className, ...props }: AuthItemsProps): JSX.Element 
     const { user } = useAuth();
 
     return (<MenuItems icon="MdOutlineLock" className={cn(className)} link={getAdminHomeUrl()} title='Админ панель' />);
-        {/* <>
+    {/* <>
             {user ? <>
                     <MenuItems icon="MdSettings" link='/profile' title='Профиль' className={cn(className)} />
                     <MenuItems icon="MdOutlineLock" className={cn(className)} link={getAdminHomeUrl()} title='Админ панель' />

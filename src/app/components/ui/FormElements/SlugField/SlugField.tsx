@@ -11,8 +11,8 @@ export const SlugField = ({ generate, register, error, className, ...props }: Sl
 
             <Filed
                 {...register('slug', { required: 'Slug обязательное поле' })}
-                title='Icon'
-                placeholder='Icon'
+                title='Slug'
+                placeholder='Slig'
                 errors={error?.message?.toString()}
                 className={styles['input']} />
 

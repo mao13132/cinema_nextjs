@@ -12,7 +12,7 @@ export const MenuItems = ({ icon, link, title, className, ...props }: MenuItemPr
     return (
         <li {...props} className={cn(className, styles['menu-row'],
             {
-                [styles['active']]: asPath === link
+                [styles['active']]: asPath === link,
             }
         )}>
 
