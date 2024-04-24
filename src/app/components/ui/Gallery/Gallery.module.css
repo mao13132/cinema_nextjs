@@ -1,0 +1,13 @@
+.gallery {
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    padding: 20px 0;
+    -webkit-overflow-scrolling: touch !important;
+    scroll-behavior: smooth;
+}
+
+.gallery::-webkit-scrollbar {
+    display: none;
+}

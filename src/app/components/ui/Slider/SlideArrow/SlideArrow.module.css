@@ -1,0 +1,50 @@
+.arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 30px;
+    background-color: red;
+    color: white;
+    font-size: 20px;
+    position: absolute;
+
+}
+
+.buttons {
+    z-index: 20;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    bottom: 20px;
+    background-color: rgba(87, 86, 86, 0.7);
+    padding: 10px;
+    border-radius: 50%;
+    animation: fade .5s ease-in-out;
+    transition: height 0.3s ease-in-out, background-color 0.3s ease-in-out;
+}
+
+@keyframes fade {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+
+.buttons:hover {
+
+    background-color: rgba(68, 68, 68, .9);
+}
+
+
+.left {
+    right: 100px;
+}
+
+.right {
+    right: 50px;
+}
