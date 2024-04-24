@@ -175,6 +175,7 @@ export const MovieEdit = ({ className, ...props }: MoviesEditProps2): JSX.Elemen
 
 
                         </div>
+
                         <div className={styles['video-row']}>
                             <Controller
                                 control={control}
