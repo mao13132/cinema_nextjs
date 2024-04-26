@@ -24,7 +24,7 @@ export const Home = ({ actors, trendingMoves, slides, ...props }: HomeProps): JS
             </div>)}
 
 
-            {actors && (<div className={styles['best-actors-row']}>
+            {actors?.length && (<div className={styles['best-actors-row']}>
 
                 <SubHeading className={styles['actors__subtitle']} title="Популярные актёры" />
 

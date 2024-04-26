@@ -13,11 +13,12 @@ export const SlideItem = ({ className, slide, buttonTitle = 'Смотреть' }
         <div className={cn(className, styles['slide'])}>
 
             {slide.bigPoster && <Image
-                layout='fill'
+                fill
                 className={styles['image']}
                 src={slide.bigPoster}
                 alt={slide.title}
                 draggable={false}
+                sizes="100%"
                 unoptimized
                 priority
             />}

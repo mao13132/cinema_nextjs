@@ -16,25 +16,15 @@ export const MoviesItem = ({ movie, className, ...props }: MoviesItemProps): JSX
             <Link href={getMovieUrl(movie.slug)}>
 
                 <div className={styles['image-contaner']}>
-                    <Image
+                    {movie.poster && <Image
                         draggable={false}
+                        sizes="100%"
                         alt={movie.title}
                         src={movie.poster}
-                        layout="fill"
+                        fill
                         className={styles['image']}
-                        priority />
+                        priority />}
                 </div>
-                {/* 
-                <Image
-                    draggable={false}
-                    alt={movie.title}
-                    width={0}
-                    height={0}
-                    sizes="100vw"
-                    style={{ width: '50px', height: '70px' }} 
-                    src={movie.poster}
-                    objectFit="contain"
-                    priority /> */}
 
             </Link>
 
@@ -53,7 +43,7 @@ export const MoviesItem = ({ movie, className, ...props }: MoviesItemProps): JSX
 
                 <div className={styles['rating']}>
                     <MaterialIcon name='MdStarRate' />
-                    <span>{movie.rating.toFixed(1)}</span>
+                    <span>{movie.rating?.toFixed(1)}</span>
                 </div>
 
             </div>

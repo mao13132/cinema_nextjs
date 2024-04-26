@@ -3,9 +3,9 @@
     background-color: '#101215';
     color: #fff;
     box-shadow: var(--shadow2);
-    width: fit-content;
 
     margin-bottom: 2.5rem;
+    width: 100%;
 }
 
 .admin-navigator>ul {

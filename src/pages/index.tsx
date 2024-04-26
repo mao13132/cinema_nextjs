@@ -5,6 +5,7 @@ import { ISlide } from "@/components/ui/Slider/Slider.props";
 import { getActorUrl, getMovieUrl } from "@/config/url.config";
 import { MovieService } from "@/services/MovieService.service";
 import { AvtorsService } from "@/services/actors.service";
+import { IActor } from "@/shared/types/movie.types";
 import { getGenresList } from "@/utils/movie/getGenresList";
 import { withLayout } from "Layout/Layout";
 import { GetStaticProps } from "next";
@@ -26,20 +27,29 @@ export default withLayout(Index);
 
 export const getStaticProps: GetStaticProps = async () => {
 
+  const actors: IGalleryItem[] = []
+
   try {
+
     const { data: movies } = await MovieService.getAll();
 
-    const { data: actrorsData } = await AvtorsService.getAllActors();
+    try {
+      const { data: actrorsData } = await AvtorsService.getAllActors();
 
-    const actors: IGalleryItem[] = actrorsData.slice(0, 7).map(_actor => ({
-      name: _actor.name,
-      posterPath: _actor.photo,
-      link: getActorUrl(_actor.slug),
-      content: {
-        title: _actor.name,
-        subTiyle: `+${_actor.countMovies} фильмов`
-      }
-    }))
+      const actors: IGalleryItem[] = actrorsData.slice(0, 7).map(_actor => ({
+        name: _actor.name,
+        posterPath: _actor.photo,
+        link: getActorUrl(_actor.slug),
+        content: {
+          title: _actor.name,
+          subTiyle: `+${_actor.countMovies} фильмов`
+        }
+      }))
+
+    } catch (error) {
+      console.log(`Ошибка при запросе актёров. index ${error}`)
+
+    }
 
     const dataTrendingMovies = await MovieService.getPopularMovies();
 
@@ -67,13 +77,11 @@ export const getStaticProps: GetStaticProps = async () => {
       } as IIndex
     }
 
-  } catch {
+  } catch (error) {
+    console.log(`Ошибка главной страници ${error}`)
+
     return {
-      props: {
-        slides: [],
-        actors: [],
-        trendingMoves: [],
-      },
+      notFound: true,
     }
   };
 

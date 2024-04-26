@@ -5,7 +5,11 @@ import { axiosClassic } from "api/interceptors";
 
 export const AvtorsService = {
     async getAllActors(searchTerm?: string) {
-        return axiosClassic.get<IActor[]>(getActorUrl(``), {
+
+        const url = `http://localhost:8000/api${getActorUrl(``)}`
+
+
+        return axiosClassic.get<IActor[]>(url, {
             params: searchTerm ? { searchTerm } : {},
         })
     },

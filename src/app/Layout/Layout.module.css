@@ -1,4 +1,7 @@
 .layout {
+    display: grid;
+
+
     position: relative;
     min-height: 100vh;
 }

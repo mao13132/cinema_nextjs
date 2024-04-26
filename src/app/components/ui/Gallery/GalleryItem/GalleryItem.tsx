@@ -5,6 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 
 export const GalleryItem = ({ item, variant, className, ...props }: GalleryItemProps): JSX.Element => {
+
+    if (!item) {
+        return <></>
+    }
+
     return (
         <Link href={item.link} className={cn(className, styles['row'], {
             [styles['withText']]: item.content,
@@ -12,8 +17,9 @@ export const GalleryItem = ({ item, variant, className, ...props }: GalleryItemP
             [styles['vertical']]: variant === 'vertical',
         })}>
 
-            <Image className={styles['image']} alt={item.name} src={item.posterPath} layout="fill"
-                draggable={false} priority />
+            {item.posterPath && <Image className={styles['image']}
+                sizes="100%" alt={item.name} src={item.posterPath} fill
+                draggable={false} priority />}
 
             {item.content && (
                 <div className={styles['content']}>

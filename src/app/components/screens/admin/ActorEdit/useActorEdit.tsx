@@ -19,8 +19,6 @@ export const useActorEdit = (setValue: UseFormSetValue<IActorEditProps>) => {
     const { isLoading } = useQuery(['get one actor', actorId], () => AvtorsService.getById(actorId), {
         onSuccess: ({ data }) => {
 
-            data = data[0]
-
             getKeys(data).forEach((key) => { setValue(key, data[key]) });
 
 

@@ -1,7 +1,7 @@
 import { IMoviesEditProps } from '@/components/screens/admin/MoviesList/MoviesList.props';
 import { getMoviesUrl } from '@/config/api.config';
-import { getMovieUrl } from '@/config/url.config';
-import { IMove } from '@/shared/types/movie.types';
+import { getActorUrl, getMovieUrl } from '@/config/url.config';
+import { IActor, IMove } from '@/shared/types/movie.types';
 import { axiosClassic } from 'api/interceptors';
 
 export const MovieService = {
@@ -19,6 +19,14 @@ export const MovieService = {
 
     async create() {
         return axiosClassic.post<IMove>(getMovieUrl(`/`));
+    },
+
+    async getByGenres(genreIds: string[]) {
+        return axiosClassic.post<IMove[]>(getMovieUrl('/by-genres'), { genreIds })
+    },
+
+    async getByActor(actorId: string) {
+        return axiosClassic.post<IActor[]>(getActorUrl(`/by-actor/${actorId}`))
     },
 
     async deleteMovie(id: string) {

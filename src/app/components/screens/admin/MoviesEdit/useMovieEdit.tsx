@@ -19,8 +19,6 @@ export const useMovieEdit = (setValue: UseFormSetValue<IMoviesEditProps>) => {
     const { isLoading } = useQuery(['get one movie', movieId], () => MovieService.getById(movieId), {
         onSuccess: ({ data }) => {
 
-            data = data[0]
-
             getKeys(data).forEach((key) => { setValue(key, data[key]) });
 
 

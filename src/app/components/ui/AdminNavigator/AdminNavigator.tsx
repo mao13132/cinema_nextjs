@@ -8,8 +8,7 @@ export const AdminNavigator = ({ className, ...props }: AdminNavigatorProps): JS
     return (
         <nav className={cn(className, styles['admin-navigator'])} {...props}>
             <ul>
-                {navItems.map(item => <AdminNavItem className={styles['item']} key={item.link} link={item.link} title={item.title} />)}
+                {navItems.map(item => <AdminNavItem className={styles['item']} key={item.id} link={item.link} title={item.title} />)}
             </ul>
         </nav>);
 };
- 

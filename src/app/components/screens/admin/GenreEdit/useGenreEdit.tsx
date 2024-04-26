@@ -20,8 +20,6 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditProps>) => {
     const { isLoading } = useQuery(['get one genre', genreId], () => GenreService.getById(genreId), {
         onSuccess: ({ data }) => {
 
-            data = data[0]
-
             getKeys(data).forEach((key) => { setValue(key, data[key]) });
 
 

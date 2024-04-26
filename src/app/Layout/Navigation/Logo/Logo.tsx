@@ -9,7 +9,8 @@ export const Logo = ({ className, ...props }: LogoProps): JSX.Element => {
     return (
         <div className={cn(className, styles['logo'])} {...props}>
             <Link href='/'>
-                <Image src={logoImage} alt="Online кинотеатр" width={247} height={34} draggable={false} />
+                <Image src={logoImage} alt="Online кинотеатр"
+                    sizes="100%" width={247} height={34} draggable={false} />
             </Link>
         </div>
 

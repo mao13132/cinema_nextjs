@@ -14,6 +14,10 @@ export const GenreService = {
         return axiosClassic.get<IGenreEditProps>(getGenresUrl(`/${id}`))
     },
 
+    async getBySlug(slug: string) {
+        return axiosClassic.get<IGenre>(getGenresUrl(`/by-slug/${slug}`))
+    },
+
 
     async deleteGenres(id: string) {
         return axiosClassic.delete<string>(getGenresUrl(`/${id}`))

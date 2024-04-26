@@ -13,13 +13,14 @@ export const SearchList = ({ movies, className, ...props }: SearchListProps): JS
             {movies.length ? movies.map(movie => (
                 <Link className={styles['a']} href={getMovieUrl(movie.slug)} key={movie.id}>
 
-                    <Image className={styles['img']} src={movie.poster}
+                    {movie?.poster && <Image className={styles['img']} src={movie.poster}
                         width={50}
                         height={50}
                         alt={movie.title}
                         objectFit='cover'
+                        sizes="100%"
                         objectPosition='top'
-                        draggable={false} />
+                        draggable={false} />}
 
                     <span className={styles['span']}>{movie.title}</span>
 

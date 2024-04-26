@@ -30,8 +30,9 @@ export const UploadFiled = ({ className, onChange, placeholder, error, folder, i
                     {isLoading ? <SkeletonLoader count={1} className={styles['skeleton']} /> : value && <Image
                         className={styles['img']}
                         alt=''
+                        sizes="100%"
                         src={`${value}`}
-                        layout="fill"
+                        fill
                         unoptimized />}
 
                 </div>}

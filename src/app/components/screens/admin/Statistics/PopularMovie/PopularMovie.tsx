@@ -29,14 +29,15 @@ export const PopularMovie = ({ className, ...props }: PopularMovieProps): JSX.El
                     : movie && <>
                         <h3 className={styles['h3']}>{movie.title}</h3>
                         <Link href={getMovieUrl(movie.slug)}>
-                            <Image
+                            {movie.bigPoster && <Image
                                 width={285}
                                 height={176}
+                                sizes="100%"
                                 src={movie.bigPoster}
                                 alt={movie.title}
                                 className={styles['image']}
                                 unoptimized
-                            />
+                            />}
                         </Link>
                     </>
             }

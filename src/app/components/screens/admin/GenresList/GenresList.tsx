@@ -13,7 +13,7 @@ export const GenresList = ({ className, ...props }: GenresListProps): JSX.Elemen
 
     const { handleSearch, isLoading, searchTerm, data, deleteAsync, createAsync } = useGenres()
 
-    return (<div className={cn(className)} {...props}>
+    return (<div className={cn(className, styles['genres-list'])} {...props}>
         <Head>
             <title>Админ панель | Жанры кино</title>
         </Head>

@@ -1,4 +1,4 @@
-import { getGenreUrl } from '@/config/url.config';
+import { getCategoryGenreUrl } from '@/config/url.config';
 import { GenreService } from '@/services/genre.service';
 import { IMenuItems } from 'Layout/Navigation/MenuItem/MenuItem.props';
 import { useQuery } from 'react-query';
@@ -10,7 +10,7 @@ export const useAllGenres = () => {
             return (
                 {
                     icon: genre.icon,
-                    link: getGenreUrl(genre.slug),
+                    link: getCategoryGenreUrl(genre.slug),
                     title: genre.name
                 } as IMenuItems
             )

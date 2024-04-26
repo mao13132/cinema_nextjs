@@ -7,7 +7,7 @@ export const Gallery = ({ items, className, ...props }: GalleryProps): JSX.Eleme
     return (
         <div className={cn(className, styles['gallery'])} {...props}>
 
-            {items.map(item => <GalleryItem key={item.link} item={item} variant="vertical" />)}
+            {items.map((item, idx) => <GalleryItem key={idx} item={item} variant="vertical" />)}
 
         </div>
     );
