@@ -26,6 +26,7 @@ export const useGenreEdit = (setValue: UseFormSetValue<IGenreEditProps>) => {
         },
 
         onError(error) {
+
             toastError(error, 'Get genre')
         },
 

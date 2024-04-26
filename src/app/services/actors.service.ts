@@ -28,7 +28,16 @@ export const AvtorsService = {
     },
 
     async getById(id: string) {
-        return axiosClassic.get<IActorEditProps>(getActorUrl(`/${id}`))
+
+        const url = `http://localhost:8000/api${getActorUrl(`${id}`)}`
+        return axiosClassic.get<IActorEditProps>(url)
+    },
+
+
+    async getByIds(id: string) {
+
+        const url = `http://localhost:8000/api${getActorUrl(`${id}`)}`
+        return axiosClassic.get<IActorEditProps[]>(url)
     },
 
 };
