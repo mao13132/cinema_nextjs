@@ -40,4 +40,8 @@ export const MovieService = {
     async getById(id: string) {
         return axiosClassic.get<IMoviesEditProps>(getMovieUrl(`${id}`))
     },
+
+    async getBySlug(slug: string) {
+        return axiosClassic.get<IMove>(getMovieUrl(`by-slug/${slug}`))
+    },
 };

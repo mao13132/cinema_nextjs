@@ -56,7 +56,7 @@ export const getStaticProps: GetStaticProps = async () => {
     const trendingMoves: IGalleryItem[] = dataTrendingMovies.slice(0, 7).map(_actor => ({
       name: _actor.title,
       posterPath: _actor.poster,
-      link: getActorUrl(_actor.slug),
+      link: getMovieUrl(_actor.slug),
     }))
 
     const slides: ISlide[] = movies.slice(0, 7).map((_movie) => (
